@@ -1,67 +1,100 @@
 <!DOCTYPE html>
-<html>
+<html lang="cs">
 
 <head>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Wishlist</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            background: #f4f1ec;
+            color: #1d1b19;
+            font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        }
+        main { max-width: 960px; margin: 0 auto; padding: 48px 20px 64px; }
+        h1 { font-size: 36px; margin: 0 0 6px; letter-spacing: -0.5px; }
+        .sub { color: #7a736b; margin: 0 0 32px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
+        .card {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, .06), 0 4px 16px rgba(0, 0, 0, .04);
+        }
+        .card img { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; background: #f0f0f0; }
+        .body { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+        .n { font-size: 12px; color: #a39a8f; font-weight: 600; }
+        .t { font-weight: 650; font-size: 17px; }
+        .tags { display: flex; gap: 6px; flex-wrap: wrap; }
+        .tag { font-size: 12px; background: #f4f1ec; border-radius: 999px; padding: 2px 9px; color: #5c554d; }
+        .d { font-size: 14px; color: #7a736b; flex: 1; margin: 2px 0 0; }
+        .row { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
+        .p { font-size: 14px; font-weight: 600; }
+        .btn {
+            font-size: 13px;
+            padding: 7px 12px;
+            border-radius: 999px;
+            background: #1d1b19;
+            color: #fff;
+            text-decoration: none;
+        }
+        .btn:hover { background: #3a3632; }
+    </style>
 </head>
 
-<body class="bg-[url(images/bg.jpg)] bg-cover bg-top">
-    <div class="w-120 mx-auto pt-5">
-    <div id="default-carousel" class="relative w-full" data-carousel="slide">
-        <!-- Carousel wrapper -->
-        <div class="relative h-200 overflow-hidden rounded-lg pt-100">
-            <div class="hidden duration-2000 ease-in-out" data-carousel-item>
-                <img src="images/skinny-bitch.png"
-                    class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-            </div>
-            <div class="hidden duration-2000 ease-in-out" data-carousel-item>
-                <img src="images/french-95.png"
-                    class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-            </div>
-            <div class="hidden duration-2000 ease-in-out" data-carousel-item>
-                <img src="images/tequila-sunrise.png"
-                    class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-            </div>
-            <div class="hidden duration-2000 ease-in-out" data-carousel-item>
-                <img src="images/sex.png"
-                    class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-            </div>
-            <div class="hidden duration-2000 ease-in-out" data-carousel-item>
-                <img src="images/royal.png"
-                    class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-            </div>
-            <div class="hidden duration-2000 ease-in-out" data-carousel-item>
-                <img src="images/pina-colada.png"
-                    class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-            </div>
-             <div class="hidden duration-2000 ease-in-out" data-carousel-item>
-                <img src="images/mojito.png"
-                    class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-            </div>
-            <div class="hidden duration-2000 ease-in-out" data-carousel-item>
-                <img src="images/blue.png"
-                    class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-            </div>
-             <div class="hidden duration-2000 ease-in-out" data-carousel-item>
-                <img src="images/mimosa.png"
-                    class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-            </div>
-            <div class="hidden duration-2000 ease-in-out" data-carousel-item>
-                <img src="images/gin-tonic.png"
-                    class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-            </div>
-             <div class="hidden duration-2000 ease-in-out" data-carousel-item>
-                <img src="images/cuba-libre.png"
-                    class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-            </div>
-           <div class="hidden duration-2000 ease-in-out" data-carousel-item>
-                <img src="images/ice-coffee.png"
-                    class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-            </div>
+<body>
+    <main>
+        <h1>Wishlist 🎁</h1>
+        <p class="sub">Věci, které by mi udělaly radost.</p>
+
+        <div class="grid">
+            <article class="card">
+                <img src="images/mx-master-4.jpg" alt="Logitech MX Master 4, černá">
+                <div class="body">
+                    <span class="n">#1</span>
+                    <span class="t">Logitech MX Master 4</span>
+                    <div class="tags"><span class="tag">nejlépe černá (Graphite)</span></div>
+                    <p class="d">Bezdrátová myš.</p>
+                    <div class="row">
+                        <span class="p">~ 3 000 Kč</span>
+                        <a class="btn" href="https://www.heureka.cz/?h%5Bfraze%5D=logitech+mx+master+4+graphite" target="_blank" rel="noopener">Heureka</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="images/zupan.jpg" alt="Župan">
+                <div class="body">
+                    <span class="n">#2</span>
+                    <span class="t">Župan</span>
+                    <div class="tags"><span class="tag">velikost 2XL</span></div>
+                    <p class="d">Hebký, teplý.</p>
+                    <div class="row">
+                        <span class="p">~ 800 Kč</span>
+                        <a class="btn" href="https://www.heureka.cz/?h%5Bfraze%5D=p%C3%A1nsk%C3%BD+%C5%BEupan+2xl" target="_blank" rel="noopener">Heureka</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="images/kabel.jpg" alt="Kroucený USB-C kabel ke klávesnici se spojkou">
+                <div class="body">
+                    <span class="n">#3</span>
+                    <span class="t">Kroucený kabel ke klávesnici</span>
+                    <div class="tags"><span class="tag">USB-C</span><span class="tag">černý</span><span class="tag">se spojkou</span></div>
+                    <p class="d">Stačí ten nejlevnější z Temu nebo Sheinu.</p>
+                    <div class="row">
+                        <span class="p">~ 200 Kč</span>
+                        <a class="btn" href="https://www.temu.com/search_result.html?search_key=coiled%20usb%20c%20keyboard%20cable%20aviator%20black" target="_blank" rel="noopener">Temu</a>
+                    </div>
+                </div>
+            </article>
         </div>
-    </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    </main>
 </body>
+
 </html>
